@@ -1,6 +1,6 @@
 # Wunderbar API
 This is the source code of the Wunderbar API. It is built in PHP using Laravel. 
-------
+
 ## Getting Started for Development 
 1. Install PHP 7.x on your laptop 
 2. Install [Composer](https://getcomposer.org/doc/00-intro.md#installation-windows) 
