@@ -15,7 +15,7 @@ This is the source code of the Wunderbar API. It is built in PHP using Laravel.
     ```copy .env.example .env```  
     * For Linux/macOS  
     ```cp .env.example .env```  
-7. Add you database details and API details to your `.env` file  
+7. Add your database details and API details to your `.env` file  
 ```
 # All your sql database details should go here
 DB_CONNECTION=mysql
