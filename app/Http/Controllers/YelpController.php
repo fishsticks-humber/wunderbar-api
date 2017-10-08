@@ -16,7 +16,7 @@ class YelpController extends Controller
 
     const BASE_URL = "https://api.yelp.com/";
     const SEARCH_ENDPOINT = "v3/businesses/search";
-    const BUSINESS_ENDPOINT = "v3//businesses/";
+    const BUSINESS_ENDPOINT = "v3/businesses";
     const AUTHORIZATION_ENDPOINT = "https://api.yelp.com/oauth2/token";
 
     private $client;
@@ -67,27 +67,59 @@ class YelpController extends Controller
     }
 
     /**
-     * Methods calls the yelp api to search for business according to the supplied parameters
+     * This method calls the yelp api to search for restaurants according to the supplied parameters
      *
+     * @see https://www.yelp.ca/developers/documentation/v3/business_search
      *
-     * @param array $params
-     * @return \Psr\Http\Message\StreamInterface
+     * @param array $params Associative array containing the search options
+     * @return array
      */
-    public function searchBusiness($params = [])
+    public function searchRestaurants($params = [])
     {
-        $params = [
-            'term' => 'delis',
-            'latitude' => '37.786882',
-            'longitude' => '-122.399972'
-        ];
-
         $response = $this->client->request(
             'GET',
             YelpController::SEARCH_ENDPOINT,
             ['query' => $params]
         );
 
-        return $response->getBody();
+        return json_decode($response->getBody(), true);
+    }
+
+
+    /**
+     * This method gets the yelp business associated with the supplied id
+     *
+     * @see https://www.yelp.ca/developers/documentation/v3/business
+     *
+     * @param $id yelp id of the restaurant
+     * @return array
+     */
+    public function getRestaurant($id)
+    {
+        $endpoint = YelpController::BUSINESS_ENDPOINT . '/' . $id;
+        $response = $this->client->request(
+            'GET',
+            $endpoint
+        );
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * This method gets the yelp reviews associated with the supplied restaurant
+     *
+     * @see https://www.yelp.ca/developers/documentation/v3/business_reviews
+     *
+     * @param $id The id of the restaurant
+     * @return array
+     */
+    public function getReviews($id)
+    {
+        $endpoint = YelpController::BUSINESS_ENDPOINT . '/' . $id . '/reviews';
+        $response = $this->client->request(
+            'GET',
+            $endpoint
+        );
+        return json_decode($response->getBody(), true);
     }
 
 }
