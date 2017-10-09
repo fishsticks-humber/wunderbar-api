@@ -74,7 +74,7 @@ class YelpController extends Controller
      * @param array $params Associative array containing the search options
      * @return array
      */
-    public function searchRestaurants($params = [])
+    public function searchRestaurants(array $params = [])
     {
         $response = $this->client->request(
             'GET',
