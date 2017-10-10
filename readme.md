@@ -28,6 +28,9 @@ DB_PASSWORD=<your database password>
 # Details for Yelp API
 YELP_CLIENT_ID=<add your yelp client id here>
 YELP_CLIENT_SECRET=<add your yelp client secret here>
+
+# Details for Google Places API
+GOOGLE_PLACES_API_KEY=<add your google places api key here>
 ```  
 8. Install all composer dependencies  
 ```composer install```
