@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,12 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::truncate();
+        User::truncate();
 
         $faker = \Faker\Factory::create();
 
         for ($i = 0; $i < 50; $i++) {
-            \App\User::create([
+            User::create([
                 'facebook_key' => $faker->sha256,
                 'google_key' => $faker->sha256,
                 'first_name' => $faker->firstNameMale,
