@@ -13,6 +13,7 @@ class RestaurantsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Restaurant::truncate();
 
         $faker = \Faker\Factory::create();
@@ -23,6 +24,7 @@ class RestaurantsTableSeeder extends Seeder
                 'yelp_id' => $faker->sha256,
             ]);
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 
 }

@@ -1,0 +1,20 @@
+Tips and tricks to work with database:
+all files we need to look into are in database folder
+
+1) Commands:
+php artisan migrate - run ALL migrations, no other option sadly
+php artisan db:seed --class=<Name of the class> (example BoardsTableSeeder)
+
+2) Recommendations to creating and populating db:
+ - Run migrations in such order, because there are adjustments that I have done which don't allow to do it in any order :
+ 1) Create users table
+ 2) Create restaurants table
+ 3) Create Reviews Table
+ 4) Create Boards Table
+ 5) for last two doesn't matter
+
+ IMPORTANT: how to run needed migrations - you send migrations that you don't need to other project folder, for example - factories, when
+ you have only one migration you call in console - php artisan migrate
+
+ About seeders, I guess you can just call php artisan db:seed  it will run DatabaseSeeder class to run all seeders at once,
+ so it will work fine, but do it only after you migrate all tables.

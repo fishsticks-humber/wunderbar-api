@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         User::truncate();
 
         $faker = \Faker\Factory::create();
@@ -27,5 +28,6 @@ class UsersTableSeeder extends Seeder
                 'uber_key' => $faker->sha256,
             ]);
         }
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
