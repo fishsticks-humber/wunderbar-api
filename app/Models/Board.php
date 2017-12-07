@@ -12,5 +12,9 @@ class Board extends Model
     {
         return $this->belongsTo('\App\User');
     }
+    public function bookmarks()
+    {
+        return $this->hasMany('\App\Bookmark');
+    }
 
 }
