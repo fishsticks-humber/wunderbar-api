@@ -12,4 +12,14 @@ class User extends Model
     {
         return $this->hasMany('\App\Board');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('\App\Review');
+    }
+
+    public function photos()
+    {
+        return $this->hasMany('\App\Photo');
+    }
 }
