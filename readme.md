@@ -15,14 +15,26 @@ This is the source code of the Wunderbar API. It is built in PHP using Laravel.
     ```copy .env.example .env```  
     * For Linux/macOS  
     ```cp .env.example .env```  
-7. Add you database details to your `.env` file  
+7. Add your database details and API details to your `.env` file  
 ```
+# All your sql database details should go here
 DB_CONNECTION=mysql
 DB_HOST=<your database port. it's usually 127.0.0.1>
 DB_PORT=<your db port. it's usally 3306>
 DB_DATABASE=<your datebase name>
 DB_USERNAME=<your database username>
 DB_PASSWORD=<your database password>
-```
-8. To start the development server  
+
+# Details for Yelp API
+YELP_CLIENT_ID=<add your yelp client id here>
+YELP_CLIENT_SECRET=<add your yelp client secret here>
+
+# Details for Google Places API
+GOOGLE_PLACES_API_KEY=<add your google places api key here>
+```  
+8. Install all composer dependencies  
+```composer install```
+9. Update composer lock file  
+```composer update```
+10. To start the development server  
 ```php artisan serve```

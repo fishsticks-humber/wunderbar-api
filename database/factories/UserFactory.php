@@ -1,7 +1,5 @@
 <?php
-
 use Faker\Generator as Faker;
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,14 +10,14 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
-
 $factory->define(App\User::class, function (Faker $faker) {
-    static $password;
-
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'facebook_key' => $faker->sha256,
+        'google_key' => $faker->sha256,
+        'first_name' => $faker->firstNameMale,
+        'last_name' => $faker->lastName,
+        'e-mail' => $faker->email,
+        'password' => $faker->password,
+        'uber_key' => $faker->sha256,
     ];
 });

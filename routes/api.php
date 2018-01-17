@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+Use App\Restaurant;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('restaurants', 'RestaurantController@index');
+Route::get('restaurants/{restaurant}', 'RestaurantController@show');
+Route::post('restaurants', 'RestaurantController@store');
+Route::put('restaurants/{restaurant}', 'RestaurantController@update');
+Route::delete('restaurants/{restaurant}', 'RestaurantController@delete');
